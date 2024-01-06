@@ -15,4 +15,5 @@ public class BranchRespon {
     private String branchName;
     private String address;
     private String phoneNumber;
+
 }

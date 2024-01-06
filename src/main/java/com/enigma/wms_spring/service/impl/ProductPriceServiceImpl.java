@@ -17,28 +17,13 @@ public class ProductPriceServiceImpl implements ProductPriceService {
     public ProductPrice create(ProductPrice productPrice) {
         return productPriceRepository.save(productPrice);
     }
-
     @Override
     public ProductPrice getById(String id) {
         return productPriceRepository.findById(id).orElseThrow();
-    }
-
-    @Override
-    public ProductPrice findProductPriceIsActive(String productId, Boolean active) {
-        return productPriceRepository.findByProduct_IdAndIsActive(productId,active).orElseThrow(
-                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "product Not Found"));
     }
     @Override
     public void delete(String id) {
         productPriceRepository.deleteById(id);
     }
 
-    @Override
-    public ProductPrice createOrUpdate(ProductPrice productPrice) {
-        if (productPrice.getId() == null) {
-            return productPriceRepository.save(productPrice);
-        } else {
-            return productPriceRepository.saveAndFlush(productPrice);
-        }
     }
-}

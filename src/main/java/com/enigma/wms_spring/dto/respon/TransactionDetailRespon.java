@@ -12,9 +12,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder(toBuilder = true)
 public class TransactionDetailRespon {
+    private String transactionDetailId;
     private String billDetailId;
-    private Transaction transaction;
-    private ProductPrice productPrice;
+    private ProductRespon product;
     private Integer quantity;
     private Double totalSales;
 }

@@ -15,7 +15,6 @@ public class ProductRespon {
     private String productCode;
     private String productName;
     private Double price;
-    private Integer stock;
     private BranchRespon branch;
 
 }

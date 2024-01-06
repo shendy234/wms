@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "m_product_price")
@@ -20,18 +21,12 @@ public class ProductPrice {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
-    @Column(name = "stock", columnDefinition = "int check (stock > 0)")
-    private Integer stock;
-    @Column(name = "is_active")
-    private Boolean isActive;
+
     @Column(name = "price")
     private Double price;
-    @ManyToOne
-    @JoinColumn(name = "branch_id")
-    private Branch branch;
-    @ManyToOne
+
+    @OneToOne
     @JoinColumn(name = "product_id")
-    @JsonBackReference
     private Product product;
 
 }
